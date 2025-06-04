@@ -22,7 +22,7 @@ Before making any modifications, we recomend you run this command to make sure y
 
 In 2019 the Java EE framework changed ownership and was renamed to Jakarta EE. Using Jakarta requires changing some namespace imports and dependent libraries, but is required to use the updates in Jakarta or newer versions of some software, like Apache Tomcat 10 (or higher). 
 
-To build your content handler for Jakarta, check out the `master-jakarta` branch of this repository. It updates FileContentHandler's imports and the dependencies in pom.xml to use the Jakarta equivalents.
+To build your content handler for Jakarta, use the [`jakarta` branch](https://github.com/SnowboundSoftware/virtualviewer-file-content-handler-example/tree/jakarta) of this repository. It updates FileContentHandler's imports and the dependencies in pom.xml to use the Jakarta equivalents.
 
 ## Installing Your Handler
 To install your new content handler, maven will output a JAR with the required additional dependencies to the `target/deploy` directory. If you are using VirtualViewer on Docker, copy all these files to the `classes` directory and update the `web.xml` to use your content handler. See the VirtualViewer Docker documentation for more information. If you are using a `virtualviewer.war` file, extract the WAR file, install the contenyd of `deploy` output to `virtualviewer/WEB-INF/lib/` and update the contentHandlerClass in `web.xml` file in `virtualviewer/WEB-INF` (see below).
