@@ -9,7 +9,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<virtualviewer.version>5.6.0</virtualviewer.version>
+		<!-- PrizmDoc for Java/VirtualViewer only supports Jakarta from 5.16 onwards -->
+		<virtualviewer.version>5.16.0</virtualviewer.version>
 		
 		<!-- Java version -->
 		<Java.Release>1.8</Java.Release>
@@ -53,7 +54,7 @@
 		<!-- Snowbound VirtualViewer AJAX servlet  -->
 		<dependency>
 			<groupId>com.snowbound.virtualviewer</groupId>
-			<artifactId>virtualviewer</artifactId>
+			<artifactId>virtualviewer-jakarta</artifactId>
 			<version>${virtualviewer.version}</version>
 			<!-- This dependency is included in the virtualviewer.war -->
 			<!-- Do not change this scope -->
@@ -62,9 +63,9 @@
 
 		<!-- Required for VirtualViewer AJAX Servlet  -->
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+			<version>5.0.0</version>
 			<!-- This dependency is provided by the JRE / JDK -->
 			<!-- Do not change this scope -->
 			<scope>provided</scope>
