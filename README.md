@@ -18,6 +18,12 @@ At the time this document was written, when using https://repo.snowbound.com/ as
 ## Building
 Before making any modifications, we recomend you run this command to make sure your system is in a sane state. Using the command line, run `mvn clean verify`. You will find the JAR(s) will output to `target/deploy`. If you prefer to use an IDE, you will need one that supports Maven based projects. We (Snowbound) do not recomend any particular IDE as this is a personal preference.
 
+### Using Jakarta EE vs Java EE
+
+In 2019 the Java EE framework changed ownership and was renamed to Jakarta EE. Using Jakarta requires changing some namespace imports and dependent libraries, but is required to use the updates in Jakarta or newer versions of some software, like Apache Tomcat 10 (or higher). 
+
+To build your content handler for Jakarta, check out the `master-jakarta` branch of this repository. It updates FileContentHandler's imports and the dependencies in pom.xml to use the Jakarta equivalents.
+
 ## Installing Your Handler
 To install your new content handler, maven will output a JAR with the required additional dependencies to the `target/deploy` directory. If you are using VirtualViewer on Docker, copy all these files to the `classes` directory and update the `web.xml` to use your content handler. See the VirtualViewer Docker documentation for more information. If you are using a `virtualviewer.war` file, extract the WAR file, install the contenyd of `deploy` output to `virtualviewer/WEB-INF/lib/` and update the contentHandlerClass in `web.xml` file in `virtualviewer/WEB-INF` (see below).
 
